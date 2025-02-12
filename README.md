@@ -22,6 +22,20 @@ Este proyecto implementa un keylogger en **Bash** capaz de registrar pulsaciones
    sudo ./keylogger.sh
    ```
 
+## Uso con socat
+- Dar permisos a los scripts:
+    ```bash
+    chmod +x start_socat.sh stop_socat.sh
+    ```
+- Iniciar socat:
+    ```bash
+    ./start_socat.sh
+    ```
+- Detener socat:
+    ```bash
+    ./stop_socat.sh
+    ```
+
 ## Advertencia ⚠️
 **Este código es exclusivamente para fines educativos.** No debe usarse en entornos reales sin consentimiento. El uso indebido de esta herramienta puede ser ilegal y está prohibido sin autorización.
 
