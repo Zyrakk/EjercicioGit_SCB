@@ -13,7 +13,11 @@ Este proyecto implementa un keylogger en **Bash** capaz de registrar pulsaciones
 1. **Ejecutar en un entorno de pruebas** con permisos de root.
 2. Configurar un servidor para recibir los archivos (mediante Flask o Apache).
 3. Modificar la variable `DEVICE` en el script para el teclado correcto (`/dev/input/eventX`).
-4. Ejecutar el script:
+4. Instalar dependencias necesarias:
+   ```bash
+   sudo apt install evtest
+   ```
+5. Ejecutar el script:
    ```bash
    sudo ./keylogger.sh
    ```
