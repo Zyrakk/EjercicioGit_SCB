@@ -5,7 +5,8 @@ Este proyecto implementa un keylogger en **Bash** capaz de registrar pulsaciones
 
 ## Características
 - Captura de pulsaciones de teclado en Linux.
-- Registro en un archivo de texto (`keylog.txt`).
+- Registro de teclas en un archivo de texto (`keylog.txt`).
+- Registro del usuario y la ip de la maquina víctima.
 - Envío automático de logs a un servidor remoto.
 - Autodestrucción después de la ejecución.
 
