@@ -23,6 +23,10 @@ Este proyecto implementa un keylogger en **Bash** capaz de registrar pulsaciones
    ```
 
 ## Uso del socat
+- Instalar socat:
+   ```bash
+   sudo apt install socat
+   ```
 - Dar permisos a los scripts:
     ```bash
     chmod +x start_socat.sh stop_socat.sh
